@@ -24,7 +24,7 @@ app.listen(port, () => {
 });
 
 app.use("/", (req, res) => {
-  res.send("Welcome to the DnD5e API");
+  res.json({ message: "Welcome to the DnD5e API" });
 });
 
 export default app;

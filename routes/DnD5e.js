@@ -15,7 +15,8 @@ router.post("/chat", async (req, res) => {
       return res.status(400).json({ error: "A query is required" });
     }
 
-    // Parse chatHistory if it's a string, or initialize as an empty array if it doesn't exist
+    // Parsing chatHistory if it's a string
+    // Initialize as an empty array if it doesn't exist
     const parsedChatHistory = chatHistory
       ? typeof chatHistory === "string"
         ? JSON.parse(chatHistory)
@@ -26,7 +27,6 @@ router.post("/chat", async (req, res) => {
 
     addToChatHistory("human", query, parsedChatHistory, improvedQuery);
 
-    // Pass the entire chatHistory to the model
     const response = await model.invoke(parsedChatHistory);
 
     const formattedResponse = response.content.replace(/\n/g, " ");

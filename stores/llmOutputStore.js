@@ -1,4 +1,3 @@
-// llmOutputStore.js
 let llmOutput;
 
 export function get() {
