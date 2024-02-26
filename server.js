@@ -23,4 +23,8 @@ app.listen(port, () => {
   console.log(`Server runs at http://localhost:${port}`);
 });
 
+app.use("/", (req, res) => {
+  res.send("Welcome to the DnD5e API");
+});
+
 export default app;
