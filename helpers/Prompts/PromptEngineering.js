@@ -1,6 +1,8 @@
-import { PromptTemplate } from "@langchain/core/prompts";
+import { PromptTemplate } from '@langchain/core/prompts';
 
-import model from "../../config/OpenAI.js";
+import OpenAIConfig from '../../config/OpenAI.js';
+
+const { model } = OpenAIConfig;
 
 async function applyPromptEngineering(question) {
   const promptEngineeringTemplate = new PromptTemplate({
