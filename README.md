@@ -70,3 +70,7 @@ This project is licensed under the MIT License - see the LICENSE.md file for det
 
 - Thanks to OpenAI for providing the API used in this project.
 - All contributors who have helped to build and improve this application.
+
+## Issues
+
+- Image Generation does not work in Vercel (The call takes to long and since Vercel only supports Express as an Serverless function it takes to long)

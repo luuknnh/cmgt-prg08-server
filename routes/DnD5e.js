@@ -54,15 +54,21 @@ router.post("/chat", async (req, res) => {
     if (imageChecker.content.trim().toLowerCase().includes("yes.")) {
       console.log("Image requested. Generating image...");
       const improvedImagePrompt = await ImagePromptEngineering(query);
-      const response = await client.images.generate({
-        model: "dall-e-3",
-        prompt: improvedImagePrompt,
-        n: 1,
-        size: "1024x1792",
-      });
-      imageUrl = response.data;
+      console.log(
+        "Prompt engineering for image applied: ",
+        improvedImagePrompt
+      );
+      // const response = await client.images.generate({
+      //   model: "dall-e-3",
+      //   prompt: improvedImagePrompt,
+      //   n: 1,
+      //   size: "1024x1792",
+      // });
+      // imageUrl = response.data;
+      // //! Temporary image URL for live version on Vercel
+      imageUrl = "https://picsum.photos/200/300";
       improvedQuery = improvedImagePrompt;
-      console.log("Image generated");
+      console.log("Image generated", imageUrl);
     } else if (imageChecker.content.trim().toLowerCase().includes("no.")) {
       console.log("No image requested. Applying prompt engineering...");
       const newImprovedQuery = await applyPromptEngineering(query);
